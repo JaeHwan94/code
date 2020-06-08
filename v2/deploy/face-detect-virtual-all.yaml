@@ -1,0 +1,96 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: face-detection
+spec:
+ hosts:
+ - face-detection
+ http:
+ - route:
+   - destination:
+      host: face-detection
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: face-feature-extractor
+spec:
+ hosts:
+ - face-feature-extractor
+ http:
+ - route:
+   - destination:
+      host: face-feature-extractor
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: membera
+spec:
+ hosts:
+ - membera
+ http:
+ - route:
+   - destination:
+      host: membera
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: memberb
+spec:
+ hosts:
+ - memberb
+ http:
+ - route:
+   - destination:
+      host: memberb
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: start
+spec:
+ hosts:
+ - start
+ http:
+ - route:
+   - destination:
+      host: start
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: member-check
+spec:
+ hosts:
+ - member-check
+ http:
+ - route:
+   - destination:
+      host: member-check
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: ai-model-repository
+spec:
+ hosts:
+ - ai-model-repository
+ http:
+ - route:
+   - destination:
+      host: ai-model-repository
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: ui
+spec:
+ hosts:
+ - ui
+ http:
+ - route:
+   - destination:
+      host: ui
+---

@@ -1,0 +1,36 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+ name: face-detection-gateway
+spec:
+ selector:
+  istio: ingressgateway
+ servers:
+ - port:
+    number: 80
+    name: http
+    protocol: HTTP
+   hosts:
+   - "*"
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+ name: face-start-signal
+spec:
+ hosts:
+ - "*"
+ gateways:
+ - face-detection-gateway
+ http:
+ - match:
+   - uri:
+      exact: /start
+
+   route:
+   - destination:
+      host: start
+      port:
+       number: 5000
+---
+

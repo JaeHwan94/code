@@ -1,0 +1,51 @@
+<html>
+	<head></head>
+	<body>
+		<table border=1 width=1900 height=900 align="center">
+			<tr border=1 width=1900 height=450 align="center">
+				<td border=1 width=950  height=450 align="center">
+
+					<h2> 
+						{% if check == None %}
+							No Data
+						{% elif check  == 0 %}
+							No Face 
+						<br>
+						{% else %}
+							<img src="{{ url_for('static',filename='cur_data/face.jpeg') }}">
+						{% endif %}
+							
+					</h2>
+					<form method="post">
+						<input name="FaceDetect" type="submit" value="FaceDetect">
+					</form>
+					<h1>
+							Time : {{ detect_time }}s
+					</h1>
+				</td>
+				<td align="center">
+					<h1>
+						Face Feature Extraction <br><br>
+						
+							Time : {{ extract_time }}s
+
+					</h1>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<h1>
+						Member or No
+					</h1>
+				</td>
+				<td align="center">
+					<h1>
+						Member Verification<br><br>
+							Time : {{ member_verify_time }}s
+					</h1>
+				</td>
+				
+			</tr>
+		</table>
+	</body>
+</html>
